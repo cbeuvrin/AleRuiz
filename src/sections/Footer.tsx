@@ -33,7 +33,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Ale Ruiz"
-                className="h-16 w-auto object-contain"
+                className="h-32 w-auto object-contain"
               />
             </div>
             <p className="text-gray-400 leading-relaxed">

@@ -9,6 +9,11 @@ import {
   Briefcase,
   HeartPulse,
   HandHeart,
+  Wrench,
+  BookOpen,
+  FileText,
+  Activity,
+  Sparkles,
 } from 'lucide-react';
 
 const services = [
@@ -20,7 +25,6 @@ const services = [
     items: [
       { icon: Stethoscope, text: 'Consultas privadas (atención individual y personalizada)' },
       { icon: Users, text: 'Evaluaciones psicométricas (diagnósticas y profesionales)' },
-      { icon: GraduationCap, text: 'Talleres y conferencias (espacios de aprendizaje y crecimiento)' },
     ],
     color: 'from-turquoise/20 to-turquoise/5',
   },
@@ -47,6 +51,29 @@ const services = [
     ],
     color: 'from-rose-100 to-rose-50',
   },
+  {
+    icon: Wrench,
+    title: 'Herramientas Prácticas',
+    description:
+      'Metodologías y recursos diseñados para facilitar la aplicación del conocimiento.',
+    items: [
+      { icon: GraduationCap, text: 'Talleres y conferencias (espacios de aprendizaje y crecimiento)' },
+      { icon: BookOpen, text: 'Manuales' },
+      { icon: FileText, text: 'Guías' },
+    ],
+    color: 'from-amber-100 to-amber-50',
+  },
+  {
+    icon: Activity,
+    title: 'Neuropsicología',
+    description:
+      'Intervenciones basadas en la neurociencia para optimizar procesos cognitivos.',
+    items: [
+      { icon: Brain, text: 'Evaluación neuropsicológicas' },
+      { icon: Sparkles, text: 'EMT (Estimulación Magnética Transcraneal)' },
+    ],
+    color: 'from-purple-100 to-purple-50',
+  },
 ];
 
 export default function Services() {
@@ -72,6 +99,60 @@ export default function Services() {
     return () => observer.disconnect();
   }, []);
 
+  const renderServiceCard = (service: any, index: number) => (
+    <div
+      key={index}
+      className={`group relative bg-white rounded-3xl p-8 shadow-soft hover:shadow-hover transition-all duration-500 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+      style={{
+        transitionDelay: isVisible ? `${300 + index * 100}ms` : '0ms',
+      }}
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
+    >
+      {/* Background gradient */}
+      <div
+        className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+      />
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Icon */}
+        <div
+          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-300 ${
+            hoveredIndex === index
+              ? 'bg-turquoise text-white scale-110'
+              : 'bg-turquoise/10 text-turquoise'
+          }`}
+        >
+          <service.icon className="w-8 h-8" />
+        </div>
+
+        {/* Title */}
+        <h3 className="font-heading text-2xl font-bold text-gray-900 mb-3">
+          {service.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-600 mb-6">{service.description}</p>
+
+        {/* Service Items */}
+        <ul className="space-y-3">
+          {service.items.map((item: any, itemIndex: number) => (
+            <li key={itemIndex} className="flex items-start gap-3 text-gray-700">
+              <item.icon className="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" />
+              <span className="text-sm leading-relaxed">{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Hover border effect */}
+      <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-turquoise/20 transition-colors duration-300" />
+    </div>
+  );
+
   return (
     <section
       id="servicios"
@@ -83,27 +164,21 @@ export default function Services() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
             className={`inline-block text-turquoise font-medium tracking-wider uppercase text-sm mb-4 transition-all duration-700 ${
-              isVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             Mis Servicios
           </span>
           <h2
             className={`font-heading text-4xl lg:text-5xl font-bold text-gray-900 mb-6 transition-all duration-700 delay-100 ${
-              isVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             ¿Cómo puedo <span className="text-turquoise">ayudarte</span>?
           </h2>
           <p
             className={`text-gray-600 text-lg transition-all duration-700 delay-200 ${
-              isVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             Ofrezco un enfoque integral que abarca diferentes áreas de la
@@ -111,74 +186,20 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group relative bg-white rounded-3xl p-8 shadow-soft hover:shadow-hover transition-all duration-500 ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-12'
-              }`}
-              style={{
-                transitionDelay: isVisible ? `${300 + index * 100}ms` : '0ms',
-              }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              {/* Background gradient */}
-              <div
-                className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-              />
+        {/* Top Services Grid (3 items) */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          {services.slice(0, 3).map((service, index) => renderServiceCard(service, index))}
+        </div>
 
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Icon */}
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-300 ${
-                    hoveredIndex === index
-                      ? 'bg-turquoise text-white scale-110'
-                      : 'bg-turquoise/10 text-turquoise'
-                  }`}
-                >
-                  <service.icon className="w-8 h-8" />
-                </div>
-
-                {/* Title */}
-                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-6">{service.description}</p>
-
-                {/* Service Items */}
-                <ul className="space-y-3">
-                  {service.items.map((item, itemIndex) => (
-                    <li
-                      key={itemIndex}
-                      className="flex items-start gap-3 text-gray-700"
-                    >
-                      <item.icon className="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" />
-                      <span className="text-sm leading-relaxed">{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Hover border effect */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-turquoise/20 transition-colors duration-300" />
-            </div>
-          ))}
+        {/* Bottom Services Grid (2 items centered) */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto lg:px-24">
+          {services.slice(3).map((service, index) => renderServiceCard(service, index + 3))}
         </div>
 
         {/* CTA */}
         <div
           className={`text-center mt-12 transition-all duration-700 ${
-            isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ transitionDelay: '600ms' }}
         >

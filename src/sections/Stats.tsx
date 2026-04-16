@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Tv, Radio, Globe, Calendar } from 'lucide-react';
+import { Tv, Radio, Globe, Calendar, ChevronDown } from 'lucide-react';
 
 const stats = [
   {
@@ -136,7 +136,7 @@ export default function Stats() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -169,6 +169,145 @@ export default function Stats() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Media Details Accordion */}
+        <div
+          className={`max-w-4xl mx-auto space-y-4 transition-all duration-1000 delay-500 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}
+        >
+          {[
+            {
+              id: 'venezuela',
+              country: 'Venezuela',
+              tv: [
+                {
+                  channel: 'Promar TV (Canal #1 regional)',
+                  programs: [
+                    'Una buena mañana',
+                    'Gaby de noche',
+                    'Sin tabú',
+                    'Emprendiendo juntos',
+                  ],
+                },
+              ],
+              radio: [
+                'Fe y alegría',
+                'Onda la super estación',
+                'Unión Radio (Marcando la pauta)',
+              ],
+            },
+            {
+              id: 'queretaro',
+              country: 'Querétaro',
+              tv: ['Querétaro 24/7', 'Lucero de Mediodía'],
+              radio: ['Poder ciudadano Querétaro', 'SM radio'],
+            },
+          ].map((item, idx) => {
+            const [localActive, setLocalActive] = useState(false);
+            return (
+              <div
+                key={item.id}
+                className={`group bg-white/5 backdrop-blur-sm rounded-2xl border transition-all duration-300 ${
+                  localActive
+                    ? 'border-turquoise/40 bg-white/10'
+                    : 'border-white/10 hover:border-turquoise/20'
+                }`}
+              >
+                <button
+                  onClick={() => setLocalActive(!localActive)}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left"
+                >
+                  <h3 className="text-white font-heading text-xl font-bold flex items-center gap-3">
+                    <span
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        localActive ? 'bg-turquoise scale-125' : 'bg-gray-600'
+                      }`}
+                    />
+                    {item.country}
+                  </h3>
+                  <div
+                    className={`transition-transform duration-300 ${
+                      localActive ? 'rotate-180 text-turquoise' : 'text-gray-500'
+                    }`}
+                  >
+                    <ChevronDown className="w-6 h-6" />
+                  </div>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    localActive ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="px-8 pb-8 pt-2 grid md:grid-cols-2 gap-8 border-t border-white/5">
+                    {/* TV Section */}
+                    <div>
+                      <h4 className="text-turquoise-light font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
+                        <Tv className="w-4 h-4" /> Apariciones en TV
+                      </h4>
+                      {Array.isArray(item.tv[0]) || typeof item.tv[0] === 'string' ? (
+                        <ul className="space-y-2">
+                          {(item.tv as string[]).map((tv) => (
+                            <li
+                              key={tv}
+                              className="text-gray-300 text-sm flex items-center gap-2"
+                            >
+                              <span className="w-1 h-1 bg-turquoise/50 rounded-full" />
+                              {tv}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="space-y-4">
+                          {(item.tv as any[]).map((tvChannel, i) => (
+                            <div
+                              key={i}
+                              className="bg-turquoise/10 rounded-xl p-4 border border-turquoise/20"
+                            >
+                              <p className="text-white font-bold text-xs mb-2 uppercase tracking-wide">
+                                {tvChannel.channel}
+                              </p>
+                              <ul className="grid grid-cols-1 gap-1">
+                                {tvChannel.programs.map((prog: string) => (
+                                  <li
+                                    key={prog}
+                                    className="text-gray-400 text-xs flex items-center gap-2"
+                                  >
+                                    <span className="w-1 h-px bg-turquoise/30" />
+                                    {prog}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Radio Section */}
+                    <div>
+                      <h4 className="text-turquoise-light font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
+                        <Radio className="w-4 h-4" /> Radio
+                      </h4>
+                      <ul className="space-y-3">
+                        {item.radio.map((radio) => (
+                          <li
+                            key={radio}
+                            className="text-gray-300 text-sm flex items-center gap-2"
+                          >
+                            <span className="w-1.5 h-1.5 border border-turquoise/50 rounded-full" />
+                            {radio}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

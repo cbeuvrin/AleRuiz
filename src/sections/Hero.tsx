@@ -87,8 +87,8 @@ export default function Hero() {
                   : 'opacity-0 translate-y-8'
               }`}
             >
-              Transformando vidas a través de la psicología clínica, el
-              desarrollo organizacional y el servicio social.
+              Psicóloga estratégica que te ayuda a descifrar los patrones que te
+              frenan hoy y a vivir con propósito.
             </p>
 
             {/* Quote */}
@@ -100,9 +100,11 @@ export default function Hero() {
               }`}
             >
               <Quote className="absolute -top-3 -left-2 w-8 h-8 text-turquoise-light opacity-60" />
-              <p className="text-white italic text-base sm:text-lg pl-4">
-                "El primer paso hacia el cambio es la conciencia. El segundo
-                paso es la aceptación."
+              <p className="text-white italic text-base sm:text-lg pl-4 leading-relaxed">
+                "Acompaño a personas y organizaciones a decidir con claridad y
+                dirección. Integro Neuropsicología, EMT y terapia clínica para
+                generar cambios reales. Accede a mi metodología en consulta,
+                manuales, guías prácticas y capacitaciones."
               </p>
             </div>
 

@@ -135,22 +135,23 @@ export default function About() {
               }`}
             >
               <p className="text-gray-600 text-lg leading-relaxed">
-                Soy Ale Ruiz, psicóloga comprometida con transformar vidas a
-                través de un enfoque integral que abarca la psicología clínica,
-                el desarrollo organizacional y el servicio social.
+                Soy Ale Ruiz, me defino como una psicóloga estratégica que te
+                ayuda a descifrar los patrones que te frenan hoy. Conmigo no
+                solo hablas de lo que te duele, aprendes a gestionarlo y
+                transformarlo.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Mi práctica se fundamenta en la creencia de que cada persona
-                tiene el potencial de crecer y superar sus desafíos. A través de
-                un enfoque personalizado y basado en evidencia científica,
-                acompaño a mis pacientes en su proceso de autodescubrimiento y
-                cambio positivo.
+                Mi trabajo se basa en intervenciones medibles y evidencia
+                científica para acompañarte en la toma de decisiones, regulación
+                emocional y desempeño personal o profesional.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed">
                 He tenido el privilegio de colaborar con diversas organizaciones
                 nacionales e internacionales, compartiendo mi conocimiento en
                 medios de comunicación y contribuyendo al bienestar de
-                comunidades a través del servicio social.
+                comunidades a través del servicio social. Mi objetivo es que
+                dejes de darle vueltas al "por qué" y empieces a dominar el
+                "cómo" vivir con propósito.
               </p>
             </div>
 

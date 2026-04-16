@@ -21,7 +21,6 @@ const services = [
       { icon: Stethoscope, text: 'Consultas privadas (atención individual y personalizada)' },
       { icon: Users, text: 'Evaluaciones psicométricas (diagnósticas y profesionales)' },
       { icon: GraduationCap, text: 'Talleres y conferencias (espacios de aprendizaje y crecimiento)' },
-      { icon: Briefcase, text: 'Capacitación empresarial (formación para equipos)' },
     ],
     color: 'from-turquoise/20 to-turquoise/5',
   },
@@ -33,6 +32,7 @@ const services = [
     items: [
       { icon: Building2, text: 'Desarrollo organizacional (transformación y crecimiento)' },
       { icon: Users, text: 'Gestión de Recursos Humanos (gestión del talento)' },
+      { icon: Briefcase, text: 'Capacitación empresarial (formación para equipos)' },
     ],
     color: 'from-blue-100 to-blue-50',
   },

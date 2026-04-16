@@ -88,7 +88,7 @@ export default function About() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-card group">
               <img
-                src="/images/about.jpg"
+                src="/images/20250321_142249.jpg"
                 alt="Ale Ruiz - Sobre Mí"
                 className="w-full h-[500px] lg:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
               />

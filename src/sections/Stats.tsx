@@ -204,7 +204,7 @@ export default function Stats() {
               tv: ['Querétaro 24/7', 'Lucero de Mediodía'],
               radio: ['Poder ciudadano Querétaro', 'SM radio'],
             },
-          ].map((item, idx) => {
+          ].map((item) => {
             const [localActive, setLocalActive] = useState(false);
             return (
               <div

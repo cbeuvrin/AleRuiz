@@ -38,14 +38,14 @@ export default function Hero() {
         <img
           src="/images/hero.jpg"
           alt="Ale Ruiz - Psicóloga Profesional"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[10%_25%] -translate-y-5"
         />
         {/* Gradient Overlay for mobile */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-44 pb-20 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
           {/* Left side - Empty on desktop (image covers it) */}
           <div className="hidden lg:block" />

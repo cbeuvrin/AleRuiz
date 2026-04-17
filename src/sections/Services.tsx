@@ -203,19 +203,23 @@ export default function Services() {
           }`}
           style={{ transitionDelay: '600ms' }}
         >
-          <a
-            href="#contacto"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .querySelector('#contacto')
-                ?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="inline-flex items-center gap-2 text-turquoise font-medium hover:text-turquoise-dark transition-colors"
-          >
-            ¿Tienes alguna pregunta sobre mis servicios?
-            <span className="underline">Contáctame</span>
-          </a>
+          <div className="flex flex-col items-center gap-6">
+            <p className="text-gray-600 text-lg">
+              ¿Tienes alguna pregunta sobre mis servicios?
+            </p>
+            <a
+              href="#contacto"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector('#contacto')
+                  ?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center justify-center bg-turquoise text-white px-10 py-4 rounded-full font-medium text-lg hover:bg-turquoise-dark transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
+              Contáctame
+            </a>
+          </div>
         </div>
       </div>
     </section>

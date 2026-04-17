@@ -1,33 +1,89 @@
 import { useEffect, useRef, useState } from 'react';
-import { Award, Star, Trophy, Medal } from 'lucide-react';
+import { Award, Star, Trophy, Medal, Tv, Globe, Users, Briefcase, Brain, Building2, Handshake } from 'lucide-react';
 
 const recognitions = [
+  {
+    icon: Medal,
+    year: 'Actualidad',
+    title: 'Asociación Nacional de Promotores y Educadores para la Salud A.C.',
+    description: 'Miembro activo y colaboradora en proyectos de salud mental y bienestar comunitario.',
+    side: 'left',
+  },
+  {
+    icon: Tv,
+    year: 'Mayo',
+    title: 'TED Circles - Invitada Experta',
+    description: 'Ponente invitada para discutir el impacto de definir miedos vs metas en el éxito personal.',
+    side: 'right',
+  },
+  {
+    icon: Globe,
+    year: 'Febrero 2021',
+    title: 'World Knowledge Summit México',
+    description: 'Reconocimiento Internacional por impartir el taller "Crea tu estrategia digital".',
+    side: 'left',
+  },
   {
     icon: Trophy,
     year: '2020-2021',
     title: 'Reconocimiento Internacional México',
-    description: 'A la trayectoria profesional en el campo de la psicología.',
+    description: 'Distinción a la trayectoria profesional destacada en el campo de la psicología estratégica.',
+    side: 'right',
+  },
+  {
+    icon: Users,
+    year: 'Febrero 2020',
+    title: 'Taller de Oratoria - Psicoemprende C.A',
+    description: 'Ponente destacada en el taller "Oratoria, más que un ABC" para el desarrollo de la comunicación.',
+    side: 'left',
+  },
+  {
+    icon: Briefcase,
+    year: 'Noviembre 2017',
+    title: 'Conferencista Neuroventas - ProEmpleo',
+    description: 'Capacitación especializada para emprendedores en técnicas de neuropsicología aplicada a ventas.',
+    side: 'right',
+  },
+  {
+    icon: Brain,
+    year: '2017',
+    title: 'Investigadora e Innovadora - ONCTI',
+    description: 'Acreditación oficial en el Programa de Estímulo a la Innovación e Investigación (PEII).',
     side: 'left',
   },
   {
     icon: Award,
-    year: '2017',
-    title: 'Fundación Pro.Empleo',
-    description: 'Reconocimiento por la contribución al desarrollo laboral.',
+    year: 'Enero 2017',
+    title: 'Congreso Internacional "Rompiendo Barreras"',
+    description: 'Participación en el magno evento internacional de crecimiento profesional en Querétaro.',
     side: 'right',
   },
   {
     icon: Star,
     year: 'Noviembre 2013',
     title: 'Investigador PEII',
-    description: 'Investigación en psicología aplicada.',
+    description: 'Acreditación inicial como investigadora en psicología aplicada y desarrollo científico.',
     side: 'left',
   },
   {
-    icon: Medal,
-    year: 'Actualidad',
-    title: 'Asociación Nacional de Promotores y Educadores para la Salud A.C.',
-    description: 'Miembro activo y colaboradora en proyectos de salud mental.',
+    icon: Building2,
+    year: 'Consultoría',
+    title: 'Walmart México y Centroamérica',
+    description: 'Capacitación y desarrollo profesional en el Centro de Capacitación Sam Walton.',
+    side: 'right',
+  },
+  {
+    icon: Briefcase,
+    year: 'Trayectoria',
+    title: 'Experiencia Citibanamex',
+    description: 'Involucramiento en iniciativas de aprendizaje institucional y desarrollo corporativo.',
+    side: 'left',
+  },
+  {
+    icon: Handshake,
+    year: 'Alianzas',
+    title: 'AECHAC y Grupo Ziike',
+    description: 'Colaboraciones estratégicas y alianzas para la promoción de la salud y bienestar integral.',
     side: 'right',
   },
 ];
@@ -187,17 +243,7 @@ export default function Recognitions() {
           </div>
         </div>
 
-        {/* Note */}
-        <div
-          className={`text-center mt-12 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: '900ms' }}
-        >
-          <p className="text-gray-500 text-sm">
-            * Los logos de las instituciones serán agregados próximamente
-          </p>
-        </div>
+
       </div>
     </section>
   );

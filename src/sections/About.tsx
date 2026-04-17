@@ -90,7 +90,7 @@ export default function About() {
               <img
                 src="/images/20250321_142249.jpg"
                 alt="Ale Ruiz - Sobre Mí"
-                className="w-full h-[500px] lg:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[500px] lg:h-[600px] object-cover transition-transform duration-500 -scale-x-100"
               />
               {/* Decorative overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-turquoise/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
